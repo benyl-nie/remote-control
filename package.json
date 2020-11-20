@@ -1,0 +1,37 @@
+{
+  "name": "remote-control",
+  "version": "1.0.0",
+  "description": "electron react 桌面端远程控制软件",
+  "main": "app/main/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:main": "electron .",
+    "start:render": "cd app/renderer/src/main && yarn start",
+    "start": "concurrently \"yarn start:render\" \"wait-on http://localhost:3000 && yarn start:main\" ",
+    "rebuild": "npm rebuild --runtime=electron --target=10.1.5 --disturl=https://atom.io/download/atom-shell --abi=82"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benyl-nie/remote-control.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benyl-nie/remote-control/issues"
+  },
+  "homepage": "https://github.com/benyl-nie/remote-control#readme",
+  "dependencies": {
+    "concurrently": "^5.3.0",
+    "electron": "^10.1.5",
+    "electron-is-dev": "^1.2.0",
+    "robotjs": "^0.6.0",
+    "vkey": "^1.0.1",
+    "wait-on": "^5.2.0",
+    "ws": "^7.4.0"
+  },
+  "devDependencies": {
+    "electron-rebuild": "^2.3.2",
+    "node-abi": "^2.19.1"
+  }
+}
